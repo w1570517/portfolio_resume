@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chiogor Ikeomumu | Azure Data & AI Engineer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        slate: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        navy: '#0a1f3a'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'heading', sans-serif;
+            font-weight: 600;
+            color: #0a1f3a;
+        }
+        .profile-img {
+            border-radius: 50%;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .sidebar {
+            background-color: white;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        .skill-item:hover {
+            color: #475569;
+            transform: translateX(3px);
+        }
+        .project-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            border-color: #cbd5e1;
+        }
+        .blog-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s ease;
+        }
+        .blog-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            border-color: #cbd5e1;
+        }
+        .tag {
+            background-color: #f1f5f9;
+            color: #475569;
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            background-color: #e2e8f0;
+        }
+        .section-title {
+            position: relative;
+            padding-bottom: 0.75rem;
+            letter-spacing: -0.025em;
+            color: #0a1f3a;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 2.5rem;
+            height: 2px;
+            background: #0a1f3a;
+        }
+        .mobile-menu {
+            display: none;
+        }
+        .custom-list {
+            list-style-type: none;
+            padding-left: 1.5rem;
+        }
+        .custom-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .custom-list li:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            background-color: #0a1f3a;
+            border-radius: 50%;
+        }
+        @media (max-width: 400px) {
+            .mobile-menu {
+                display: block;
+            }
+            .sidebar {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                z-index: 50;
+                height: 100vh;
+                transition: left 0.3s ease;
+            }
+            .sidebar.active {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-slate-50">
+    <!-- Header Banner -->
+    <div class="bg-navy text-white">
+        <div class="max-w-7xl mx-auto">
+            <!-- Mobile Menu Button -->
+            <div class="mobile-menu md:hidden fixed top-4 left-4 z-50">
+                <button id="menuToggle" class="bg-white p-3 rounded-lg shadow-sm text-slate-700 hover:bg-slate-100 transition">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+
+            <!-- Profile Header Content -->
+            <div class="flex flex-col items-center py-12 px-8 md:px-10">
+                <img src="assets/profile.jpg" alt="Chiogor Ikeomumu" alt="Chiogor Ikeomumu" class="profile-img w-80 h-80 mb-6 border-2 border-white-400">
+                <h1 class="text-3xl font-bold text-center text-white">Chiogor Ikeomumu</h1>
+                <p class="text-white-300 text-lg text-center font-medium mt-2">Certified Azure Data & AI Engineer</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="flex flex-col md:flex-row max-w-7xl mx-auto">
+        <!-- Sidebar -->
+        <div id="sidebar" class="sidebar w-full md:w-1/3 lg:w-1/4 p-8 md:p-10 flex flex-col -mt-10 bg-white rounded-t-lg shadow-sm">
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-4 section-title text-darkblue">Contact</h2>
+                <div class="space-y-3">
+                    <a href="https://uk.linkedin.com/in/chiogorikeomumu" target="_blank" class="flex items-center hover:text-slate-800 transition text-slate-600">
+                        <i class="fab fa-linkedin mr-3 text-slate-500 text-lg"></i>
+                        LinkedIn
+                    </a>
+                    <a href="#" target="_blank" class="flex items-center hover:text-slate-800 transition text-slate-600">
+                        <i class="fab fa-github mr-3 text-slate-500 text-lg"></i>
+                        GitHub
+                    </a>
+                    <div class="flex items-center text-slate-600">
+                        <i class="fas fa-map-marker-alt mr-3 text-slate-500 text-lg"></i>
+                         United Kingdom
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold mb-4 section-title text-darkblue">Skills</h2>
+                <div class="space-y-4">
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">Cloud Platforms:</h3>
+                        <p class="text-slate-500 text-sm">Azure, AWS, GCP</p>
+                    </div>
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">Languages:</h3>
+                        <p class="text-slate-500 text-sm">Python, SQL, R, DAX, PySpark</p>
+                    </div>
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">Data Engineering:</h3>
+                        <p class="text-slate-500 text-sm">Azure Data Factory, SSIS, Spark, Dataproc</p>
+                    </div>
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">Databases:</h3>
+                        <p class="text-slate-500 text-sm">Synapse, Fabric, BigQuery, Redshift,SQL Server, PostgreSQL</p>
+                    </div>
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">AI/ML:</h3>
+                        <p class="text-slate-500 text-sm">Azure AI Studio, LangChain, MLflow, MLlib,Deepeval</p>
+                    </div>
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">BI Tools:</h3>
+                        <p class="text-slate-500 text-sm">Power BI, Tableau, Looker Studio</p>
+                    </div>
+                    <div class="skill-item transition pl-2">
+                        <h3 class="font-bold text-navy">CI/CD & DevOps:</h3>
+                        <p class="text-slate-500 text-sm">GitHub, GitLab, Azure DevOps</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h2 class="text-xl font-semibold mb-4 section-title text-darkblue">Education</h2>
+                <ul class="custom-list">
+                    <li class="text-slate-600 text-sm">MSc Business Intelligence and Analytics – University of Westminster</li>
+                    <li class="text-slate-600 text-sm">MBA Finance and Business Management – University of Gloucestershire</li>
+                    <li class="text-slate-600 text-sm">BEng Chemical Engineering – Anambra State University</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="w-full md:w-2/3 lg:w-3/4 p-8 md:p-10">
+            <!-- Summary Section -->
+            <section class="mb-12 bg-white p-8 rounded-lg border border-slate-100">
+                <h2 class="text-3xl font-bold mb-6 section-title text-darkblue">Professional Summary</h2>
+                <p class="text-slate-600 leading-relaxed">
+                    Experienced in designing and developing scalable data engineering and AI analytics solutions using modern cloud platforms. 
+                    Proven track record of delivering value through automation, intelligent insight delivery, and cloud-native systems across various industries.
+                </p>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="mb-12">
+                <h2 class="text-3xl font-bold mb-8 section-title text-darkblue">Key Projects</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Project 1 -->
+                    <div class="project-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">ETL Automation</h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            Built scalable ETL pipelines across Dynamics 365 and SharePoint into Azure Synapse and Microsoft Fabric.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Azure Data Factory</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Synapse</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Fabric</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Big Data Processing</h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            Developed PySpark pipelines for high-volume processing and analytics in Azure Synapse.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">PySpark</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Azure Synapse</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Big Data</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Cloud Data Warehousing</h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            Modeled and implemented Kimball-based EDWs with BEAM methodology for reporting and insights.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Data Modeling</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Kimball</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">BEAM</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Analytics & Visualization</h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            Created Power BI and Tableau dashboards with advanced DAX, RLS, and user-centric design.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Power BI</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Tableau</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">DAX</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Applied AI/ML</h3>
+                        <p class="text-slate-500 mb-4 text-sm">
+                            Delivered LLM-powered solutions with Azure AI for document analysis, chatbot creation, anomaly detection, and PII redaction.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">Azure AI</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">LLM</span>
+                            <span class="tag px-3 py-1 rounded-full text-xs font-medium">LangChain</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Blog Section -->
+            <section>
+                <h2 class="text-3xl font-bold mb-8 section-title text-darkblue">Latest Articles</h2>
+                <div class="space-y-6">
+                    <!-- Blog Post 1 -->
+                    <div class="blog-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Getting Started with Azure Data Factory</h3>
+                        <p class="text-slate-500 mb-4 text-sm">A comprehensive guide to setting up your first ETL pipeline in Azure Data Factory with best practices.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400">June 15, 2023</span>
+                            <a href="#" class="text-slate-600 hover:text-slate-800 font-medium flex items-center text-sm">
+                                Read More <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 2 -->
+                    <div class="blog-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Using LLMs for Business Insights</h3>
+                        <p class="text-slate-500 mb-4 text-sm">How to leverage large language models to extract meaningful business insights from unstructured data.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400">May 28, 2023</span>
+                            <a href="#" class="text-slate-600 hover:text-slate-800 font-medium flex items-center text-sm">
+                                Read More <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Post 3 -->
+                    <div class="blog-card p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-2 text-navy">Data Modeling Tips with BEAM</h3>
+                        <p class="text-slate-500 mb-4 text-sm">Practical advice for implementing the BEAM methodology in your data modeling projects.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-slate-400">April 10, 2023</span>
+                            <a href="#" class="text-slate-600 hover:text-slate-800 font-medium flex items-center text-sm">
+                                Read More <i class="fas fa-chevron-right ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.getElementById('menuToggle');
+            
+            if (window.innerWidth <= 768 && 
+                !sidebar.contains(event.target) && 
+                event.target !== menuToggle && 
+                !menuToggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
